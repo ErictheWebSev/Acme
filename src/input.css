@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  outline: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::placeholder {
+  font-size: 1rem;
+}
+
+@layer components {
+  .h2 {
+    @apply text-4xl font-bold text-slate-900 dark:text-slate-400 sm:text-5xl text-center mb-12;
+  }
+  
+  .input {
+    @apply w-full mt-2 py-3 px-5 border border-solid border-slate-600
+          rounded-xl text-xl sm:text-2xl text-slate-800 focus:border-teal-500
+          mb-9;
+  }
+  
+  .hamburger {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  transition: all 0.25s;
+  position: relative;
+  outline: none;
+  border: none;
+  background: transparent;
+  transition: all 0.25s;
+  }
+  
+.hamburger-top, 
+.hamburger-bottom, 
+.hamburger-middle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 10px;
+  transition: all 0.25s;
+  background: white;
+}
+
+
+.hamburger-top{
+  transform: translateY(5px);
+  width: 25px;
+}
+
+.hamburger-middle{
+  transform: translateY(12px);
+  width: 20px;
+}
+
+.hamburger-bottom{
+  transform: translateY(20px);
+}
+
+.open{
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburger-top{
+  width: 30px;
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle{
+  display: none;
+}
+
+.open .hamburger-bottom{
+  width: 30px;
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+}
+  
+}
+
+@layer base {
+  .p {
+  @apply text-2xl sm:text-3xl text-left before:content-['\201C'] mt-6
+  before:text-5xl before:font-serif before:font-bold before:absolute
+  before:top-0 before:left-0 before:transform before:translate-x-4
+  before:translate-y-4  after:content-['\201D']
+  after:text-5xl after:font-serif after:font-bold after:absolute
+  after:bottom-5 after:right-2;
+  }
+}
